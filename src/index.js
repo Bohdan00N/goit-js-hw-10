@@ -1,5 +1,6 @@
 import './css/styles.css';
 import { fetchCountries } from './js/fetchcountries';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { countryCardTemplate, countryListTemplate } from './js/template';
 import { refs } from './js/refs';
 
@@ -30,7 +31,7 @@ function onInputCountry() {
         return;
       }
 
-      if (countries.length <= 10) {
+      if (countries.length <= 10 && countries.length > 1) {
         const listMarkup = countries.map(country =>
           countryListTemplate(country)
         );
@@ -39,7 +40,7 @@ function onInputCountry() {
       }
 
       if (countries.length === 1) {
-        const markup = countries.map(country => countryCardTeemplate(country));
+        const markup = countries.map(country => countryCardTemplate(country));
         refs.countryInfo.innerHTML = markup.join('');
         refs.countryList.innerHTML = '';
       }
