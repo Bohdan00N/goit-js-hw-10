@@ -2,9 +2,8 @@ import './css/styles.css';
 import { fetchCountries } from './js/fetchCountries';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { countryCardTemplate, countryListTemplate } from './js/template';
-import { refs } from './js/refs';
-
 var debounce = require('lodash.debounce');
+import { refs } from './js/refs';
 
 const DEBOUNCE_DELAY = 300;
 refs.searchBox.addEventListener(
