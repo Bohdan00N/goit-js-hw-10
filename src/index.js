@@ -20,8 +20,8 @@ function onInputCountry() {
   }
 
   fetchCountries(countryName)
-    .then(countrys => {
-      if (countrys.length > 10) {
+    .then(countries => {
+      if (countries.length > 10) {
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
@@ -30,16 +30,16 @@ function onInputCountry() {
         return;
       }
 
-      if (countrys.length <= 10) {
-        const listMarkup = countrys.map(country =>
+      if (countries.length <= 10) {
+        const listMarkup = countries.map(country =>
           countryListTemplate(country)
         );
         refs.countryList.innerHTML = listMarkup.join('');
         refs.countryInfo.innerHTML = '';
       }
 
-      if (countrys.length === 1) {
-        const markup = countrys.map(country => countryСardTeemplate(country));
+      if (countries.length === 1) {
+        const markup = countries.map(country => countryCardTeemplate(country));
         refs.countryInfo.innerHTML = markup.join('');
         refs.countryList.innerHTML = '';
       }
